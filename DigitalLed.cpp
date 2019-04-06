@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "DigitalLed.h"
 #include "DigitalDoorbell.h"
+#include "DigitalToggle.h"
 
 DigitalLed::DigitalLed(int ledPin, int btnPin) {
     pinMode(ledPin, OUTPUT); 
@@ -19,5 +20,9 @@ void DigitalLed::setStrategy(int strategy) {
 
     if(strategy == Doorbell) {
         _strategy = new DigitalDoorbell(); 
+    }
+
+    if(strategy == Toggle) {
+        _strategy = new DigitalToggle(); 
     }
 }

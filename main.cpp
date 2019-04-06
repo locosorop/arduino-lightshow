@@ -3,18 +3,17 @@
 
 int ledPin = 13;
 int btnPin = 2;
+int switchBtnPin = 3; 
 DigitalLed digiLed(ledPin, btnPin); 
 
 void setup() {
-  Serial.begin(9600);
+  pinMode(switchBtnPin, INPUT); 
 }
 
 void loop() {
-  //TODO: digital strategy 
-    //DigitalLightStrategy
-      //clickListener
-    //DigitalDoorbell
-    //DigitalToggle
+  if(digitalRead(switchBtnPin)) {
+    digiLed.setStrategy(DigitalLed::DigitalLightType::Toggle); 
+  }
 
   //TODO: Analog strategy
     //AnalogLightStrategy
