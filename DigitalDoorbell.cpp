@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "DigitalDoorbell.h"
 
 DigitalDoorbell::DigitalDoorbell() {

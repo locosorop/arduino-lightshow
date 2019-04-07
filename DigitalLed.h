@@ -9,6 +9,8 @@
 
 #include "Arduino.h"
 #include "DigitalLightStrategy.h"
+#include "DigitalDoorbell.h"
+#include "DigitalToggle.h"
 
 class DigitalLed {
     public:

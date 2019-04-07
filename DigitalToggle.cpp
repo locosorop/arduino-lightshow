@@ -1,6 +1,4 @@
-#include "Arduino.h"
 #include "DigitalToggle.h"
-#include "DigitalLightStrategy.h"
 
 DigitalToggle::DigitalToggle() {
     _btnState = 0; 
