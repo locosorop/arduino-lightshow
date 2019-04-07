@@ -18,9 +18,11 @@ class DigitalLed {
       DigitalLed(int ledPin, int btnPin);
       void render();
       void setStrategy(int strategy);
+      int getCurrentStrategyType();
     private:
       int _ledPin;
       int _btnPin;
+      int _currentStrategyType; 
       DigitalLightStrategy *_strategy;
 };
 

@@ -6,13 +6,22 @@ int btnPin = 2;
 int switchBtnPin = 3; 
 DigitalLed digiLed(ledPin, btnPin); 
 
+int switchBtnState = 0;
+int prevSwitchBtnState = 0;
+
 void setup() {
   pinMode(switchBtnPin, INPUT); 
 }
 
 void loop() {
-  if(digitalRead(switchBtnPin)) {
-    digiLed.setStrategy(DigitalLed::DigitalLightType::Toggle); 
+  //TODO: interrupts instead of polling
+  switchBtnState = digitalRead(switchBtnPin);
+  if(prevSwitchBtnState == 1 && switchBtnState == 0) {
+    if(digiLed.getCurrentStrategyType() == DigitalLed::DigitalLightType::Doorbell) {
+      digiLed.setStrategy(DigitalLed::DigitalLightType::Toggle); 
+    } else {
+      digiLed.setStrategy(DigitalLed::DigitalLightType::Doorbell); 
+    } 
   }
 
   //TODO: Analog strategy
@@ -22,5 +31,6 @@ void loop() {
     //AnalogSpeeder
 
     digiLed.render();
+    prevSwitchBtnState = switchBtnState;
 }
 

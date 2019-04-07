@@ -20,9 +20,16 @@ void DigitalLed::setStrategy(int strategy) {
 
     if(strategy == Doorbell) {
         _strategy = new DigitalDoorbell(); 
+        //TODO: _type && getType as abstract strategy requirements 
+        _currentStrategyType = Doorbell;
     }
 
     if(strategy == Toggle) {
         _strategy = new DigitalToggle(); 
+        _currentStrategyType = Toggle;
     }
+}
+
+int DigitalLed::getCurrentStrategyType() {
+    return _currentStrategyType; 
 }
